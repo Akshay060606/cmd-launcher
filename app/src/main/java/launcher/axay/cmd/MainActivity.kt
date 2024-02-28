@@ -33,6 +33,14 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
             )
+
+        binding
+            .defaultTextViewButton
+            .setOnClickListener {
+                val intent = Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                intent.data = Uri.parse("package:launcher.axay.cmd")
+                this.startActivity(intent)
+            }
     }
 
     private fun TextView.makeClickable(text: CharSequence, clickableText: String, clickListener: () -> Unit) {
